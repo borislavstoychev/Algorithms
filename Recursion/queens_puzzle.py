@@ -1,68 +1,58 @@
-"""The n queens puzzle"""
-
-
-class NQueens:
-    """Generate all valid solutions for the n queens puzzle"""
-
+class Queens:
     def __init__(self, size):
-        # Store the puzzle (problem) size and the number of valid solutions
         self.size = size
-        self.solutions = 0
-        self.solve()
+        self.attack_row = set()
+        self.attack_col = set()
+        self.attack_left_diagonal = set()
+        self.attack_right_diagonal = set()
+        self.matrix = [[False] * size for i in range(0, size)]
+        self.count = 0
 
-    def solve(self):
-        """Solve the n queens puzzle and print the number of solutions"""
-        positions = [-1] * self.size
-        self.put_queen(positions, 0)
-        print("Found", self.solutions, "solutions.")
+    def put_q(self, r):
+        if r == self.size:
+            self.count += 1
+            self.__str__()
+            return
 
-    def put_queen(self, positions, target_row):
-        """
-        Try to place a queen on target_row by checking all N possible cases.
-        If a valid place is found the function calls itself trying to place a queen
-        on the next row until all N queens are placed on the NxN board.
-        """
-        # Base (stop) case - all N rows are occupied
-        if target_row == self.size:
-            self.show_full_board(positions)
-            self.solutions += 1
-        else:
-            # For all N columns positions try to place a queen
-            for column in range(self.size):
-                # Reject all invalid positions
-                if self.check_place(positions, target_row, column):
-                    positions[target_row] = column
-                    self.put_queen(positions, target_row + 1)
+        for c in range(0, self.size):
+            if not self.__is_attacked(r, c):
+                self.matrix[r][c] = True
+                self.attack_row.add(r)
+                self.attack_col.add(c)
+                self.attack_left_diagonal.add(r - c)
+                self.attack_right_diagonal.add(r + c)
 
-    @staticmethod
-    def check_place(positions, ocuppied_rows, column):
-        """
-        Check if a given position is under attack from any of
-        the previously placed queens (check column and diagonal positions)
-        """
-        for i in range(ocuppied_rows):
-            if positions[i] == column or \
-                    positions[i] - i == column - ocuppied_rows or \
-                    positions[i] + i == column + ocuppied_rows:
-                return False
-        return True
+                self.put_q(r + 1)
 
-    def show_full_board(self, positions):
-        """Show the full NxN board"""
-        for row in range(self.size):
-            line = ""
-            for column in range(self.size):
-                if positions[row] == column:
-                    line += "Q "
+                self.matrix[r][c] = False
+                self.attack_row.remove(r)
+                self.attack_col.remove(c)
+                self.attack_left_diagonal.remove(r - c)
+                self.attack_right_diagonal.remove(r + c)
+
+    def __is_attacked(self, r, c):
+        return c in self.attack_col or \
+               r in self.attack_row or \
+               r - c in self.attack_left_diagonal or \
+               r + c in self.attack_right_diagonal
+
+    def __str__(self):
+        for i in range(0, self.size):
+            result = ''
+            for j in range(0, self.size):
+                if self.matrix[i][j]:
+                    result += "* "
                 else:
-                    line += ". "
-            print(line)
-        print("\n")
+                    result += "- "
+            print(result)
+        print('')
 
 
 def main():
     """Initialize and solve the n queens puzzle"""
-    NQueens(8)
+    q = Queens(int(input()))
+    q.put_q(0)
+    print(f"Total combinations are {q.count}")
 
 
 if __name__ == "__main__":

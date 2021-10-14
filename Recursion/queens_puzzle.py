@@ -8,7 +8,7 @@ class Queens:
         self.matrix = [[False] * size for i in range(0, size)]
         self.count = 0
 
-    def put_q(self, r):
+    def put_q(self, r=0):
         if r == self.size:
             self.count += 1
             self.__str__()
@@ -51,7 +51,7 @@ class Queens:
 def main():
     """Initialize and solve the n queens puzzle"""
     q = Queens(int(input()))
-    q.put_q(0)
+    q.put_q()
     print(f"Total combinations are {q.count}")
 
 

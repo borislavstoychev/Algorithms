@@ -1,7 +1,7 @@
 # Lab: Sorting and Searching Algorithms
 This document defines the in-class exercises assignments for the "Algorithms" course @ Software University. 
 ## Part I – Sorting
-##    1. Merge Sort
+##    1. Merge Sort - [Solution](https://github.com/borislavstoychev/Algorithms/blob/main/Sorting%20and%20Searching%20Algorithms/merge_sort.py)
 Sort an array of elements using the famous merge sort
 ### Examples
 Input  | Output
@@ -29,7 +29,7 @@ If not, however, you need to split it into two subarrays, sort them recursively 
 
 You can now call the Sort() method 
 
-##    2. Quicksort
+##    2. Quicksort - [Solution](https://github.com/borislavstoychev/Algorithms/blob/main/Sorting%20and%20Searching%20Algorithms/quicksort.py)
 Sort an array of elements using the famous quicksort
 ### Examples
 Input | Output
@@ -58,7 +58,7 @@ If there is only one element, it is already partitioned and the index of the piv
 Finding the pivot point involves rearanging all elements in the partition so it satisfies the condition all elements to the reft of the pivot to be smaller from it, and all elements to its right to be greater than it
 
 ## Part II – Implement Binary Search
-##    3. Implement Binary Search
+##    3. Implement Binary Search - [Solution](https://github.com/borislavstoychev/Algorithms/blob/main/Sorting%20and%20Searching%20Algorithms/binery_search.py)
 Implement an algorithm that finds the index of an element in a sorted array of integers in logarithmic time
 ### Examples
 Input | Output |Comments

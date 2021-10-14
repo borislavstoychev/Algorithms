@@ -55,7 +55,7 @@ Bottom of recursion should be when the index is outside of the vector
 
 To generate all combinations, create a for loop with a recursive call
 
-##    5. Generating Combinations - [Solution]()
+##    5. Generating Combinations - [Solution](https://github.com/borislavstoychev/Algorithms/blob/main/Recursion/generating_combinations.py)
 Generate all n choose k combinations. Read the set of elements, then number of elements to choose.
 ### Examples
 Input  | Output

@@ -1,3 +1,5 @@
+# Първия цикъл обхожда целия масив и докато има елемент по малък от ляво ги разменя. 
+# swap evry elements to the left, while current num is smaller then left num
 def insertion_sort(arr):
     for i in range(1, len(arr)):
         j = i

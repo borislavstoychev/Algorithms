@@ -1,3 +1,4 @@
+# start from begining and swap current index num from first loop with current index from second loop if the number is smaler.
 def selection_sort(arr):
     for i in range(len(arr)):
         min = i

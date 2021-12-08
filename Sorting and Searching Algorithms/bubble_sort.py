@@ -1,3 +1,5 @@
+#Първия цикъл обхожда масива, втория сравнява стойностите и ако е необходимо ги подрежда
+#swap current and previews number if current is smaller
 def bubble_sort(arr):
     for i in range(len(arr)):
         for j in range(1, len(arr) - i):

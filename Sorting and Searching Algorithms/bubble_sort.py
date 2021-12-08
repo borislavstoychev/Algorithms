@@ -5,6 +5,7 @@ def bubble_sort(arr):
                 arr[j-1], arr[j] = arr[j], arr[j-1]
     return arr
 
+# second solution
 def bubble_sort2(arr):
     is_sorted = False
     count = 0

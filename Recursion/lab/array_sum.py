@@ -4,4 +4,4 @@ def recursive_arr_sum(arr, i=0):
     return arr[i] + recursive_arr_sum(arr, i + 1)
 
 
-print(recursive_arr_sum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
+print(recursive_arr_sum(list(map(int, input().split()))))

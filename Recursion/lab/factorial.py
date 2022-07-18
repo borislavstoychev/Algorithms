@@ -3,4 +3,4 @@ def recursive_factorial(num):
         return num
     return num * recursive_factorial(num - 1)
 
-print(recursive_factorial(10))
+print(recursive_factorial(int(input())))

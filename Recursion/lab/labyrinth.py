@@ -1,4 +1,5 @@
 def main(x):
+    _ = int(input())
     matrix = []
     exit_path = []
     for i in range(0, x):
@@ -51,6 +52,7 @@ def searching_path(m, path, exit_path, i, j):
 
     # if none of the above is explorable or invalid index backtrack
     path.pop()
+    m[i][j] = '-'
 
 
-main(3)
+main(int(input()))

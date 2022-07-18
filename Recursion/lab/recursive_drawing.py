@@ -6,4 +6,4 @@ def drawing(num):
     print("#" * num)
 
 
-drawing(5)
+drawing(int(input()))

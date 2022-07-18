@@ -37,7 +37,9 @@ def main():
             area.append({'row': i, 'col': j, 'size': area_size})
 
     sorted_area = sorted(area, key=lambda x: (x['size'], -x['row'], -x['col']), reverse=True)
-    print(*sorted_area, sep='\n')
+    print(f"Total areas found: {len(sorted_area)}")
+    for i,area in enumerate(sorted_area):
+        print(f"Area #{i+1} at ({area['row']}, {area['col']}), size: {area['size']}")
 
 
 if __name__ == '__main__':

@@ -4,12 +4,12 @@ class ReverseArray:
 
     def reverse(self, left=0):
         if left >= len(self.arr) // 2:
-            print(self.arr)
+            print(*self.arr, sep=" ")
         else:
             right = len(self.arr) - 1 - left
             self.arr[left], self.arr[right] = self.arr[right], self.arr[left]
             self.reverse(left + 1)
 
 
-reverse = ReverseArray([1, 2, 3, 4, 5])
+reverse = ReverseArray(input().split())
 reverse.reverse()

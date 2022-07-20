@@ -78,7 +78,7 @@ def merge_sort2(my_list):
             k += 1
 
 
-myList = [54, 26, 93, 17, 77, 31, 44, 55, 20]
-print(merge_sort(myList))
+myList = list(map(int, input().split()))
+print(*merge_sort(myList), sep=" ")
 merge_sort2(myList)
 print(myList)

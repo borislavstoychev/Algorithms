@@ -9,4 +9,4 @@ def selection_sort(arr):
     return arr
 
 
-print(selection_sort([5, 4, 7, 8, 3, 2, 6, 1]))
+print(*selection_sort(list(map(int, input().split()))), sep=" ")

@@ -8,4 +8,4 @@ def insertion_sort(arr):
             j -= 1
     return arr
 
-print(insertion_sort([9, 8, 7, 55, 35, 17]))
+print(*insertion_sort(list(map(int, input().split()))), sep=" ")

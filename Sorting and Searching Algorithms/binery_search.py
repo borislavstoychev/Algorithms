@@ -12,8 +12,8 @@ def binary_search(arr,start , end, searching_number):
     else:
         return -1 
 
-arr = [2, 3, 4, 10, 40]
-x = 10
+arr = list(map(int, input().split()))
+x = int(input())
 start = 0
 end = len(arr) - 1
 

@@ -4,7 +4,7 @@
 # Stable: Depends
 # Method: Partitioning
 
-def quick_sort(arr, start= 0, end=6):
+def quick_sort(arr, end, start= 0,):
     piivot = start
     left = piivot +1 
     right = end
@@ -12,7 +12,7 @@ def quick_sort(arr, start= 0, end=6):
         return
 
     while left <= right:
-        if arr[left] > arr[piivot] and arr[right] < arr[piivot]:
+        if arr[left] > arr[piivot] > arr[piivot]:
             arr[left], arr[right] = arr[right], arr[left]
         
         if arr[left] <= arr[piivot]:
@@ -23,14 +23,14 @@ def quick_sort(arr, start= 0, end=6):
     arr[piivot], arr[right] = arr[right], arr[piivot]
     smaller_left_sub = right - 1 - start < end - (right + 1)
     if smaller_left_sub :
-        quick_sort(arr, start, right -1)
-        quick_sort(arr, right + 1, end)
+        quick_sort(arr, right -1, start)
+        quick_sort(arr, end, right + 1)
 
     else:
-        quick_sort(arr, right + 1, end)
-        quick_sort(arr, start, right - 1)
+        quick_sort(arr, end, right + 1)
+        quick_sort(arr, right - 1, start, )
     return arr
     
 
-
-print(quick_sort([12, 14, 10, 5, 6, 4, 7]))
+arr= list(map(int, input().split()))
+print(*quick_sort(arr=arr, end=len(arr)-1), sep=" ")

@@ -20,4 +20,4 @@ def bubble_sort2(arr):
     return arr 
 
 
-print(bubble_sort2([3, 2, 8, 1, 6, 6, 8]))
+print(*bubble_sort2(list(map(int, input().split()))), sep=" ")

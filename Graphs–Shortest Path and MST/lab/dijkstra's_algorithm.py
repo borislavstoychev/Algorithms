@@ -7,36 +7,25 @@ class Edge():
     self.destination = destination
     self.weight = weight
 
-class DijkstraAlgorithm():
+class Graph():
   
-  def __init__(self, edges= int(input())) -> None:
+  def __init__(self, edges, graph, max_node, start, end) -> None:
     self.edges = edges
-    self.graph = {}
-    self.start = 0
-    self.end = 0
-    self.path = deque()
-    self.pq = PriorityQueue()
-  
-  def create_graph(self):
-    for _ in range(self.edges):
-      sorce, destination, weight = list(map(int, input().split(', ')))
-      if sorce not in self.graph:
-        self.graph[sorce] = []
-      if destination not in self.graph:
-        self.graph[destination] = []
-      self.graph[sorce].append(Edge(sorce, destination, weight))
-    self.start = int(input())
-    self.end = int(input())
-    self.max_node = max(self.graph.keys())
+    self.graph = graph
+    self.start = start
+    self.end = end
+    self.max_node = max_node
     self.distance = [float('inf')] * (self.max_node + 1)
     self.parent = [None] * (self.max_node + 1)
+    self.path = deque()
+    self.pq = PriorityQueue()
 
-  def shortest_path(self):
+  def dijkstras(self):
     self.pq.put((0, self.start))
     while not self.pq.empty():
       min_distance, node = self.pq.get()
       if node == self.end:
-        break
+        return
       for child in self.graph[node]:
         new_distance = min_distance + child.weight
         if new_distance < self.distance[child.destination]:
@@ -44,7 +33,7 @@ class DijkstraAlgorithm():
           self.parent[child.destination] = node
           self.pq.put((new_distance, child.destination))
 
-  def show_path(self):
+  def print_path(self):
     if self.distance[self.end] == float('inf'):
       print('There is no such path.')
 
@@ -58,8 +47,22 @@ class DijkstraAlgorithm():
       print(*self.path, sep=" ")
 
 
+def main():
+  edges = int(input())
+  graph = {}
+  for _ in range(edges):
+      sorce, destination, weight = [int(n) for n in input().split(', ')]
+      if sorce not in graph:
+        graph[sorce] = []
+      if destination not in graph:
+        graph[destination] = []
+      graph[sorce].append(Edge(sorce, destination, weight))
+  start = int(input())
+  end = int(input())
+  max_node = max(graph.keys())
+  solution = Graph(edges, graph, max_node, start, end)
+  solution.dijkstras()
+  solution.print_path()
 
-solution = DijkstraAlgorithm()
-solution.create_graph()
-solution.shortest_path()
-solution.show_path()
+if __name__ == "__main__":
+  main()

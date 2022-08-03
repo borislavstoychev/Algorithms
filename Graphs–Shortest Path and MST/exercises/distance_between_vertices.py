@@ -17,7 +17,7 @@ class Graph():
     while queue:
       node = queue.popleft()
       if node == self.destination_node:
-        break
+        return
       for child in self.graph[node]:
         if child in visited:
           continue
